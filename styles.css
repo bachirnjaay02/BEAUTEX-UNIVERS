@@ -120,8 +120,10 @@ footer{
 /* backgroup sur mobile */
 @media (max-width:768px){
   body{
-    background-size: contain;
+    background-size: 50px 50px ;
     background-attachment:fixed ;
+    
+
   }
 }
 
