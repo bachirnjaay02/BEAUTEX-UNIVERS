@@ -14,7 +14,7 @@
     <nav class="container navbar navbar-expand-lg ">
       <a class="navbar-brand fw-bold" href="index.html">
         <img src="img/logo.jpeg" alt="Logo BEAUTEX UNIVERS" width="60" height="60"
-          class="d-inline-block rounded align-text-top me-2">
+          class="d-inline-block text-white-block rounded align-text-top me-2">
       </a>
       <div id="nav-buttons" class="ms-auto d-flex gap-2 align-items-center">
         <button class="btn  position-relative" data-bs-toggle="offcanvas"
@@ -29,8 +29,10 @@
     <section class="text-center mb-4">
       <img src="img/logo.jpeg" alt="BEAUTEX UNIVERS Logo" width="120" height="120"
         class="d-inline-block rounded align-text-top mb-3">
-      <h1 class="display-6 fw-bold text-white"> Bienvenue sur BEAUTEX UNIVERS</h1>
-      <p class="text-white">Découvrez nos tissus pour couture.</p>
+         
+      <h1 class=" display-6 fw-bold text-white"><span class="pulse-text"> Bienvenue sur BEAUTEX UNIVERS</span></h1>
+      <p class=" text-center text-white"><span class="pulse-text">Découvrez nos tissus pour couture.</span></p>
+     
     </section>
 
     <section id="products" class="row g-4">
@@ -67,6 +69,9 @@
               </div>
               <div class="input-group input-group-sm">
                 <button class="btn btn-avertissement add-to-cart fw-bold">Ajouter au panier</button>
+              </div>
+              <div class="text-epuise">Épuisé
+
               </div>
               
             </div>
@@ -351,6 +356,21 @@
     </div>
   </div>
 
+  <!-- Image lightbox modal -->
+  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content bg-dark">
+        <div class="modal-header bg-dark border-secondary">
+          <h5 class="modal-title text-white" id="lightboxModalLabel">Vue détaillée</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body d-flex justify-content-center align-items-center bg-dark p-0">
+          <img id="lightbox-image" src="" alt="" style="max-height: 90vh; max-width: 100%; object-fit: contain;">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer class=" py-3 mt-4">
     <div class="container text-center text-white justify-content-between align-items-center">© 2026 BEAUTEX UNIVERS — Tous droits réservés
       <img src="img/logo.jpeg" alt="" width="60" height="40" class="d-flex align-items-center align-text-center ms-1">
@@ -577,6 +597,19 @@
 
       // init
       updateCartUI();
+
+      // Lightbox functionality for product images
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImage = document.getElementById('lightbox-image');
+
+      document.querySelectorAll('.card-img-top').forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+          lightboxImage.src = img.src;
+          const bsModal = new bootstrap.Modal(lightboxModal);
+          bsModal.show();
+        });
+      });
     })();
   </script>
 

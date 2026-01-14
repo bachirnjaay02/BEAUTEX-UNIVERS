@@ -19,6 +19,23 @@ header .navbar-brand{
 .text-price{
   color:var(--price-color) !important;
 }
+.pulse-text{
+  animation: pulse-animation 2s ease-in-out infinite;
+  color: #011431;
+}
+@keyframes pulse-animation{
+  0%,70%{color:var(--logo-primary)}
+  70%,50%{color:var(--logo-accent)}
+  50%,100%{color: white}
+}
+.text-epuise{
+  color:rgb(250, 247, 247);
+  font-weight:bold;
+  background-color: red;
+  border: #222;
+  width: fit-content;
+  border-radius: 4px;
+}
 .btn.btn-avertissement{
   background: linear-gradient(135deg, var(--logo-primary), var(--logo-accent));
   color: #fff;
@@ -108,15 +125,3 @@ footer{
   }
 }
 
-/* pulse animation for feedback when adding */
-.pulse{
-  animation: pulse .6s ease;
-  box-shadow:0 10px 30px rgba(1,20,49,.18);
-  transform-origin:center center;
-}
-
-@keyframes pulse{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.06)}
-  100%{transform:scale(1)}
-}
