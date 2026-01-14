@@ -21,7 +21,6 @@ header .navbar-brand{
 }
 .pulse-text{
   animation: pulse-animation 2s ease-in-out infinite;
-  color: #011431;
 }
 @keyframes pulse-animation{
   0%,70%{color:var(--logo-primary)}
